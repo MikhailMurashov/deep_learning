@@ -1,6 +1,6 @@
 from keras.datasets import mnist
 from keras.models import Sequential
-from keras.optimizers import Adadelta, RMSprop
+from keras.optimizers import Adam, SGD
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D
 from keras.utils import to_categorical
 
@@ -9,7 +9,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 batch_size = 128
 num_classes = 10
-epochs = 1
+epochs = 10
 
 img_rows, img_cols = 28, 28
 input_shape = (img_rows, img_cols, 1)
@@ -18,10 +18,10 @@ input_shape = (img_rows, img_cols, 1)
 def get_task_model():
     model = Sequential()
     model.add(Flatten(input_shape=input_shape))
-    model.add(Dense(800, activation='relu'))
+    model.add(Dense(300, activation='relu'))
     model.add(Dense(10, activation='softmax'))
 
-    model.compile(loss='categorical_crossentropy', optimizer=RMSprop(), metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=SGD(), metrics=['accuracy'])
     return model
 
 
@@ -37,7 +37,7 @@ def get_example_model():
     model.add(Dropout(0.5))
     model.add(Dense(num_classes, activation='softmax'))
 
-    model.compile(loss='categorical_crossentropy', optimizer=Adadelta(), metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=Adam(), metrics=['accuracy'])
     return model
 
 

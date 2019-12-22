@@ -80,7 +80,7 @@ class Network():
 
 		return grads
 
-	def fit(self, X, y, epochs=20, batch_size=128, learning_rate=0.1):
+	def fit(self, X, y, epochs=20, batch_size=256, learning_rate=0.1):
 		dW1 = np.zeros(self.W1.shape)
 		db1 = np.zeros(self.b1.shape)
 		dW2 = np.zeros(self.W2.shape)
