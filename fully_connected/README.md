@@ -102,7 +102,7 @@
 ### ReLu
 ### Количество нейронов: 512-256
 ![Relu2l](resources/2l-512-256-u-relu.png)
-![Relu2l1](resources/2l-512-256-u-relu-acc.png)
+![Relu2l1](resources/2l-512-256u-relu-acc.png)
 ![Relu2l2](resources/2l-512-256-u-relu-loss.png)
 ### Количество нейронов: 1024-512
 ![Relu2l3](resources/2l-1024-512-u-relu.png)
@@ -110,23 +110,22 @@
 ![Relu25](resources/2l-1024-512-u-relu-loss.png)
 ### SeLu
 ### Количество нейронов: 512-256
-![Selu2l](resources/2l-512-256-u-selu.png)
-![Selu2l](resources/2l-512-256-u-selu-acc.png)
-![Selu2l](resources/2l-512-256-u-selu-loss.png)
+![Selu2l0](resources/2l-512-256-u-selu.png)
+![Selu2l1](resources/2l-512-256-u-selu-acc.png)
+![Selu2l2](resources/2l-512-256-u-selu-loss.png)
 ### Количество нейронов: 1024-512
-
-![Selu2l](resources/2l-1024-512-u-selu.png)
-![Selu2l](2l-1024-512-u-selu-acc.png)
-![Selu2l](2l-1024-512-u-selu-loss.png)
+![Selu2l3](resources/2l-1024-512-u-selu.png)
+![Selu2l41](resources/2l-1024-512-u-selu-acc.png)
+![Selu2l](resources/2l-1024-512-u-selu-loss.png)
 ### Tanh
 ### Количество нейронов: 512-256
-![Selu2l](resources/2l-512-256-u-tanh.png)
-![Selu2l](resources/2l-512-256-u-tanh-acc.png)
-![Selu2l](resources/2l-512-256-u-tanh-loss.png)
+![Tanh2l](resources/2l-512-256-u-tanh.png)
+![Tanh12l](resources/2l-512-256-u-tanh-acc.png)
+![Tanh22l](resources/2l-512-256-u-tanh-loss.png)
 ### Количество нейронов: 1024-512
-![Selu2l](resources/2l-1024-512-u-tanh.png)
-![Selu2l](resources/2l-1024-512-u-tanh-acc.png)
-![Selu2l](resources/2l-1024-512-u-tanh-loss.png)
+![Tanh12l](resources/2l-1024-512-u-tanh.png)
+![Tanh232l](resources/2l-1024-512-u-tanh-acc.png)
+![Tanh23232l](resources/2l-1024-512-u-tanh-loss.png)
 ## Разработанные программы/скрипты
 Был разработан python-скрипт create_csv.py, обрабатывающий массив изображений и создающий csv-файл с двумя столбцами: category и path. Первый столбец содержит информацию вида class_name, второй столбец содержит относительный путь до изображения. Затем был разработан .ipynb-скрипт реализующий обучение нейронной сети. Для генерации тренировочных и валидационных данных был использован упомянутый выше csv-файл. Для предобработки изображений из нашей тренировочной выборки использовался класс ImageDataGenerator, определяющий конфигурацию подготовки данных. В процессе обучения нейронной сети были испробованы следующие параметры класса: rescale, rotation range, horizontal and vertical flip, width and height shift. В свою очередь предобработка валидационных данных заключалась в применении rescale. Далее проходит обучение двух наших моделей с применением различных функций активации, таких как: гиперболический тангенс, ReLu и SeLu. Первая модель является однослойной, вторая - двухслойной. 
 ## Результаты экспериментов
