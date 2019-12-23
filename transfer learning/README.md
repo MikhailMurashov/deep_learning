@@ -1,4 +1,4 @@
-# Convolutional
+# Transfer-learning
 
 ## [Введение](../README.md)
 
