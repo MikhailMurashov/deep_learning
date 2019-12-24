@@ -87,8 +87,27 @@
 |:------------:|:----------------:|:--------------------:|
 | 23,663,525   | 75,813           | 23,587,712           |
 
+Обучим данную модель со следующими learning rate:
+
+***learning rate = 0.1 Training time = 250s***
+
 ![](../resources/transferLearnning1acc.png)
 ![](../resources/transferLearnning1loss.png)
+
+***learning rate = 0.01 Training time = 130s***
+
+![](../resources/transferLearnning2acc.png)
+![](../resources/transferLearnning2loss.png)
+
+***learning rate = 0.001 Training time = 234s***
+
+![](../resources/transferLearnning3acc.png)
+![](../resources/transferLearnning3loss.png)
+
+***learning rate = 0.0001 Training time = 234s***
+
+![](../resources/transferLearnning4acc.png)
+![](../resources/transferLearnning4loss.png)
 
 Как можно увидеть из графиков, сильное переобучение. Можно преположить, что плохие результаты связаны с тем, что веса данной сети заточены под множество других классов, которые плохо коррелируют с нашими. Было бы неплохо дообучить веса для нашей задачи.
 
@@ -109,8 +128,10 @@
 |:------------:|:----------------:|:--------------------:|
 | 23,663,525   | 23,610,405       | 53,120               |
 
-![](../resources/transferLearnning2acc.png)
-![](../resources/transferLearnning2loss.png)
+***Training time = 738s***
+
+![](../resources/transferLearnning5acc.png)
+![](../resources/transferLearnning5loss.png)
 
 Результаты получились сильно лучше. Это связано с тем, что в датасете *ImageNet* присутствуют классы животных похожих на наших. К примеру:
 
@@ -139,8 +160,10 @@
 |:------------:|:----------------:|:--------------------:|
 | 23,663,525   | 23,610,405       | 53,120               |
 
-![](../resources/transferLearnning3acc.png)
-![](../resources/transferLearnning3loss.png)
+***Training time = 5612s***
+
+![](../resources/transferLearnning6acc.png)
+![](../resources/transferLearnning6loss.png)
 
 Наблюдается переобучение, в связи с разношерстностью данных, о которой упоминалось в предыдущих работах. Модели явно не хватает общего понимания того, что происходит на изображении.
 
@@ -148,9 +171,11 @@
 
 Наилучшие результаты были получены для второго типа переноса обучения.
 
-| loss   | accuracy |
-|:------:|:--------:|
-| 0.6234709247946739 | 0.825   |
+| transfer learning type | loss   | accuracy |
+|:------:|:------:|:--------:|
+|1| xxx | xxx |
+|2| 0.6234709247946739 | 0.825   |
+|3| xxx | xxx |
 
 ### Пример
 
@@ -160,8 +185,8 @@
 
 Expected category : wheaten_terrier
 
-| Category | without data aug |
-|:--------:|:----------------:|
-|wheaten_terrier    | 0.98815745 |
-|havanese   |0.0051027923        |
-|scottish_terrier   | 0.0036167  |
+| Category | Type 1 | Type 2| Type 3 |
+|:--------:|:----------------:|:--------:|:--------:|
+|wheaten_terrier  | xxx | 0.98815745 | xxx |
+|havanese         | xxx | 0.0051027923  | xxx      |
+|scottish_terrier | xxx | 0.0036167  | xxx|

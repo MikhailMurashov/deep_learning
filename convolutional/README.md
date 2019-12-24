@@ -54,12 +54,12 @@
 
 | Layer (type) | Output Shape   | Param #   |
 |--------------|----------------|-----------|
-| Conv2D       | (112, 112, 64) | 9472      |
+| Conv2D(7x7x64,stride=2)       | (112, 112, 64) | 9472      |
 | Relu         | (112, 112, 64) | 0         |
 | MaxPooling2D | (56, 56, 64)   | 0         |
-| Conv2D       | (56, 56, 128)  | 73856     |
+| Conv2D(3x3x128)      | (56, 56, 128)  | 73856     |
 | Relu         | (56, 56, 128)  | 0         |
-| Conv2D       | (56, 56, 128)  | 147584    |
+| Conv2D(3x3x128)       | (56, 56, 128)  | 147584    |
 | Relu         | (56, 56, 128)  | 0         |
 | MaxPooling2D | (28, 28, 128)  | 0         |
 | Flatten      | (100352)       | 0         |
@@ -67,6 +67,8 @@
 | Dense        | (37)           | 9509      |
 
 Total params: 25,930,789
+
+Training time: 255 s
 
 ![Model Accuracy](models_img/model1Acc.png)
 ![Model Loss](models_img/model1Loss.png)
@@ -81,21 +83,21 @@ Total params: 25,930,789
 
 | Layer (type)           |Output Shape    | Param #   |
 |------------------------|----------------|-----------| 
-| Conv2D                 | (112, 112, 64) | 9472      |
+| Conv2D(7x7x64,stride=2)                 | (112, 112, 64) | 9472      |
 | batch_normalization    | (112, 112, 64) | 256       |
 | Relu                   | (112, 112, 64) | 0         |
 | max_pooling            | (56, 56, 64)   | 0         |
-| Conv2D                 | (56, 56, 128)  | 73856     |
+| Conv2D(3x3x128)                 | (56, 56, 128)  | 73856     |
 | batch_normalization    | (56, 56, 128)  | 512       |
 | Relu                   | (56, 56, 128)  | 0         |
-| Conv2D                 | (56, 56, 128)  | 147584    |
+| Conv2D(3x3x128)                 | (56, 56, 128)  | 147584    |
 | batch_normalization    | (56, 56, 128)  | 512       |
 | Relu                   | (56, 56, 128)  | 0         |
 | max_pooling            | (28, 28, 128)  | 0         |
-| Conv2D                 | (28, 28, 256)  | 295168    |
+| Conv2D(3x3x256)                 | (28, 28, 256)  | 295168    |
 | batch_normalization    | (28, 28, 256)  | 1024      |
 | Relu                   | (28, 28, 256)  | 0         |
-| Conv2D                 | (28, 28, 256)  | 590080    |
+| Conv2D(3x3x256)                 | (28, 28, 256)  | 590080    |
 | batch_normalization    | (28, 28, 256)  | 1024      |
 | Relu                   | (28, 28, 256)  | 0         |
 | max_pooling            | (14, 14, 256)  | 0         |
@@ -103,6 +105,8 @@ Total params: 25,930,789
 | Dense                  | (37)           | 9509      |
 
 Total params: 1,128,997
+
+Training time: 598 s
 
 ![Model Accuracy](models_img/model2Acc.png)
 ![Model Loss](models_img/model2Loss.png)
@@ -115,29 +119,31 @@ Total params: 1,128,997
 
 | Layer (type)           | Output Shape   | Param #   |
 |------------------------|----------------|-----------| 
-| Conv2D                 | (112, 112, 64) | 9472      |
+| Conv2D(7x7x64,stride=2)         | (112, 112, 64) | 9472      |
 | batch_normalization    | (112, 112, 64) | 256       |
 | Relu                   | (112, 112, 64) | 0         |
 | max_pooling            | (56, 56, 64)   | 0         |
-| Conv2D                 | (56, 56, 128)  | 73856     |
+| Conv2D(3x3x128)        | (56, 56, 128)  | 73856     |
 | batch_normalization    | (56, 56, 128)  | 512       |
 | Relu                   | (56, 56, 128)  | 0         |
-| Conv2D                 | (56, 56, 128)  | 147584    |
+| Conv2D(3x3x128)        | (56, 56, 128)  | 147584    |
 | batch_normalization    | (56, 56, 128)  | 512       |
 | Relu                   | (56, 56, 128)  | 0         |
 | max_pooling            | (28, 28, 128)  | 0         |
-| Conv2D                 | (28, 28, 256)  | 295168    |
+| Conv2D(3x3x256)        | (28, 28, 256)  | 295168    |
 | batch_normalization    | (28, 28, 256)  | 1024      |
 | Relu                   | (28, 28, 256)  | 0         |
-| Conv2D                 | (28, 28, 256)  | 590080    |
+| Conv2D(3x3x256)        | (28, 28, 256)  | 590080    |
 | batch_normalization    | (28, 28, 256)  | 1024      |
 | Relu                   | (28, 28, 256)  | 0         |
 | max_pooling            | (14, 14, 256)  | 0         |
 | global_average_pooling | (256)          | 0         |
-| dropout                | (256)          | 0         |
+| dropout(0,7)           | (256)          | 0         |
 | Dense                  | (37)           | 9509      |
 
 Total params: 1,128,997
+
+Training time: 1445 s
 
 ![Model Accuracy](models_img/model3Acc.png)
 ![Model Loss](models_img/model3Loss.png)
@@ -153,10 +159,15 @@ Total params: 1,128,997
 
 Это должно привести к более стабильным результатам. Используем предыдущую архитектуру сети, т.к. она дала самые лучшие результаты.
 
+Training time: 7326 s
+
 ![Model Accuracy](models_img/model4Acc.png)
 ![Model Loss](models_img/model4Loss.png)
 
+
 Как видно из графика сильно это не помогло. Предположение: уменьшить learning rate, возможно модель зависла на плато и сойдется еще чуть-чуть. Используем lr=0.0003, как советовал ***Andrej Karpathy*** в своем [твиттере](https://twitter.com/karpathy/status/801621764144971776) =D
+
+Training time: 1582s
 
 ![Model Accuracy](models_img/model5Acc.png)
 ![Model Loss](models_img/model5Loss.png)
@@ -165,30 +176,51 @@ Total params: 1,128,997
 
 ## Тестирование моделей
 
-Для тестирования использовались следующие модели:
+| Model | loss   | accuracy |
+|:------: |:------:|:--------:|
+| 1 | 8.3970 | 0.1694   |
+| 2 | 2.6559 | 0.3588   |
+| 3 | 1.2996 | 0.6212   |
+| 3* | 1.0639 |  0.6677   |
 
-- С использованием аугментации данных
+3* - 3-я модель применением аугментации
 
-| loss   | accuracy |
-|:------:|:--------:|
-| 1.0759 | 0.6678   |
-
-- Без использования аугментации данных
-
-| loss   | accuracy |
-|:------:|:--------:|
-| 1.4011 | 0.6031   |
-
-### Пример
-
-Запустим обе модели и попробуем определить породу для данного изображения 
+### Пример 
 
 ![Birman](models_img/Birdman.png)
 
-Expected category : Birman
+Expected category : basset_hound
 
-| Category | without data aug | with data aug |
-|:--------:|:----------------:|:-------------:|
-|Birman    | 0.2598           | 0.6058        |
-|Siamese   | 0.7225           | 0.3518        |
-|Ragdoll   | 0.0143           | 0.0421        |
+1 модель
+
+| сategory | probability |
+|:------: |:------:|
+| american_pit_bull_terrier | 0.901869 |
+| saint_bernard | 0.053291954 |
+| beagle | 0.040868543 |
+
+2 модель
+
+| сategory | probability |
+|:------: |:------:|
+| basset_hound | 0.89700705 |
+| american_pit_bull_terrier | 0.07242166 |
+| saint_bernard | 0.01048784 |
+
+
+3 модель
+
+| сategory | probability |
+|:------: |:------:|
+| basset_hound | 0.5467195 |
+| beagle | 0.32127753 |
+| boxer | 0.0801156 |
+
+3-я модель с применением аугментации
+
+| сategory | probability |
+|:------: |:------:|
+| basset_hound | 0.5987823 |
+| beagle | 0.26649556 |
+| saint_bernard | 0.04203651 |
+
