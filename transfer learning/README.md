@@ -173,20 +173,36 @@
 
 | transfer learning type | loss   | accuracy |
 |:------:|:------:|:--------:|
-|1| xxx | xxx |
-|2| 0.6234709247946739 | 0.825   |
-|3| xxx | xxx |
+|[Модель 1](#Перенос-признакового-представления)| 3.9458 | 0.025 |
+|[Модель 2](#Перенос-обучения-на-основе-экземпляров)| 0.5573 | 0.8338   |
+|[Модель 3](#Перенос-обучения-для-родственных-доменов) | 2.1882 | 0.5747 |
 
 ### Пример
 
-Запустим модель и попробуем определить породу для данного изображения 
+![Birman](../resources/american_bulldog.png)
 
-![wheaten_terrier](../resources//wheaten_terrier.png)
+Expected category : basset_hound
 
-Expected category : wheaten_terrier
+[Модель 1](#Перенос-признакового-представления)
 
-| Category | Type 1 | Type 2| Type 3 |
-|:--------:|:----------------:|:--------:|:--------:|
-|wheaten_terrier  | xxx | 0.98815745 | xxx |
-|havanese         | xxx | 0.0051027923  | xxx      |
-|scottish_terrier | xxx | 0.0036167  | xxx|
+| сategory | probability |
+|:------: |:------:|
+| Sphynx | 0.14406468 |
+| British_Shorthair | 0.066880845 |
+| Birman | 0.06326203 |
+
+[Модель 2](#Перенос-обучения-на-основе-экземпляров)
+
+| сategory | probability |
+|:------: |:------:|
+| american_bulldog | 0.8987125 |
+| wheaten_terrier | 0.047516923 |
+| american_pit_bull_terrier | 0.020723468 |
+
+[Модель 3](#Перенос-обучения-для-родственных-доменов) 
+
+| сategory | probability |
+|:------: |:------:|
+| american_bulldog | 0.48303205 |
+| chihuahua | 0.19517869 |
+| Abyssinian | 0.13826469 |

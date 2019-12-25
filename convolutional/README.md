@@ -185,7 +185,7 @@ Training time: 1582s
 
 ### Пример 
 
-![Birman](models_img/Birdman.png)
+![Birman](../resources/basset_hound.png)
 
 Expected category : basset_hound
 
